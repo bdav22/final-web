@@ -18,10 +18,20 @@ namespace TaskManager.Pages
         {
 	        var contact = Global.GetContactById(id);
 
+
+
             contact.Description = Task.Description;
             contact.DueDate = Task.DueDate;
             contact.IsCompleted = Task.IsCompleted;
-            contact.CompletionDate = Task.CompletionDate;
+
+            if (Task.IsCompleted)
+            {
+                contact.CompletionDate = DateTime.Now;
+            } else 
+            { 
+                contact.CompletionDate = null; 
+            }
+
             Global.SaveContactsToFile();
             return RedirectToPage("Index");
         }
