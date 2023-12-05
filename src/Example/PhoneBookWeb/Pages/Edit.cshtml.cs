@@ -1,27 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PhoneBookWeb;
+using TaskManager;
 
-namespace PhoneBookWeb.Pages
+namespace TaskManager.Pages
 {
     public class EditModel : PageModel
     {
         [BindProperty]
-        public Contact Contact { get; set; }
+        public Task Task { get; set; }
 
         public void OnGet(int id)
         {
-	        Contact = Global.GetContactById(id);
+	        Task = Global.GetContactById(id);
         }
 
         public IActionResult OnPost(int id)
         {
 	        var contact = Global.GetContactById(id);
 
-            contact.Description = Contact.Description;
-            contact.DueDate = Contact.DueDate;
-            contact.IsCompleted = Contact.IsCompleted;
-            contact.CompletionDate = Contact.CompletionDate;
+            contact.Description = Task.Description;
+            contact.DueDate = Task.DueDate;
+            contact.IsCompleted = Task.IsCompleted;
+            contact.CompletionDate = Task.CompletionDate;
             Global.SaveContactsToFile();
             return RedirectToPage("Index");
         }

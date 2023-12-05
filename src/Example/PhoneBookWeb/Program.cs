@@ -1,4 +1,4 @@
-namespace PhoneBookWeb
+namespace TaskManager
 {
 	public class Program
 	{

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PhoneBookWeb;
+namespace TaskManager;
 
 static class Global
 {
@@ -8,9 +8,9 @@ static class Global
 
     public static string Root { get; private set; }
 
-    public static List<Contact> Contacts = new();
+    public static List<Task> Contacts = new();
 
-    public static void Add(Contact contact)
+    public static void Add(Task contact)
     {
 	    s_id++;
         contact.Id = s_id;
@@ -26,7 +26,7 @@ static class Global
         if (File.Exists(filePath))
         {
             var json = File.ReadAllText(filePath);
-            Contacts = JsonConvert.DeserializeObject<List<Contact>>(json)!;
+            Contacts = JsonConvert.DeserializeObject<List<Task>>(json)!;
             s_id = Contacts.Max(c => c.Id);
         }
     }
@@ -39,7 +39,7 @@ static class Global
         File.WriteAllText(filePath, json);
     }
 
-    public static Contact GetContactById(int id)
+    public static Task GetContactById(int id)
     {
 	    return Contacts.Single(c => c.Id == id);
     }

@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace PhoneBookWeb.Pages
+namespace TaskManager.Pages
 {
     public class AddModel : PageModel
     {
 		[BindProperty]
-        public Contact Contact { get; set; }
+        public Task Task { get; set; }
 
         public void OnGet()
         {
@@ -17,7 +17,7 @@ namespace PhoneBookWeb.Pages
             if (!ModelState.IsValid)
                 return Page();
 
-            //if (Contact.Email.Contains("@gmail.com"))
+            //if (Task.Email.Contains("@gmail.com"))
             //{
             //    ModelState.AddModelError(string.Empty, "Gmail is not supported");
             //    return Page();
@@ -25,7 +25,7 @@ namespace PhoneBookWeb.Pages
 
 
 
-            Global.Add(Contact);
+            Global.Add(Task);
 
             return RedirectToPage("Index");
         }

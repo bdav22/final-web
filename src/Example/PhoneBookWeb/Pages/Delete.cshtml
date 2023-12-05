@@ -1,7 +1,7 @@
 ﻿@page "{id:int}"
-@model PhoneBookWeb.Pages.DeleteModel
+@model TaskManager.Pages.DeleteModel
 @{
-    var contact = Model.Contact;
+    var contact = Model.Task;
 }
 
 <p>Are you sure to delete @($"{contact.Id} {contact.Description}")?</p>

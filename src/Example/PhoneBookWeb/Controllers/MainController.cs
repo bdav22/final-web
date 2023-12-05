@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace PhoneBookWeb.Controllers
+namespace TaskManager.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class MainController : ControllerBase
     {
-        public List<Contact> GetContacts() => Global.Contacts;
+        public List<Task> GetContacts() => Global.Contacts;
 
         public string Add(
             string description,
@@ -16,7 +16,7 @@ namespace PhoneBookWeb.Controllers
             DateTime completionDate
            )
         {
-            Global.Add(new Contact
+            Global.Add(new Task
             {
                 Description = description,
                 DueDate = dueDate,

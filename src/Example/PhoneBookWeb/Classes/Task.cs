@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace PhoneBookWeb;
+namespace TaskManager;
 
-public class Contact
+public class Task
 {
     public int Id { get; set; }
 
@@ -19,10 +19,5 @@ public class Contact
     [Display(Name = "Completion Date:")]
     public DateTime? CompletionDate { get; set; }
 
-    public static readonly List<SelectListItem> Genders = new()
-    {
-        new() { Value = "M", Text = "Male" },
-        new() { Value = "F", Text = "Female" },
-        new() { Value = "O", Text = "Other" },
-    };
+   
 }

@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace PhoneBookWeb.Pages
+namespace TaskManager.Pages
 {
     public class DeleteModel : PageModel
     {
-        public Contact Contact { get; set; }
+        public Task Task { get; set; }
 
         public void OnGet(int id)
         {
-            Contact = Global.GetContactById(id);
+            Task = Global.GetContactById(id);
         }
 
         public IActionResult OnPost(int id)
