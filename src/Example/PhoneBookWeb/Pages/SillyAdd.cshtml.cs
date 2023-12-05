@@ -5,14 +5,14 @@ namespace PhoneBookWeb.Pages
 {
     public class SillyAddModel : PageModel
     {
-        public IActionResult OnGet(string first, string last, string phone, string email)
+        public IActionResult OnGet(string desc, DateTime dueDate, Boolean isCompleted, DateTime completionDate)
         {
             Global.Add(new Contact
             {
-                FirstName = first,
-                LastName = last,
-                PhoneNumber = phone,
-                Email = email
+                Description = desc,
+                DueDate = dueDate,
+                IsCompleted = isCompleted,
+                CompletionDate = completionDate
             });
 
             return RedirectToPage("Index");

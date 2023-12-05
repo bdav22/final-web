@@ -7,22 +7,17 @@ public class Contact
 {
     public int Id { get; set; }
 
-    [Display(Name = "First Name:")]
-    public string FirstName { get; set; }
+    [Display(Name = "Task Description:")]
+    public string Description { get; set; }
 
-    [Display(Name = "Last Name:")]
-    public string LastName { get; set; }
-    
-    [EmailAddress]
-    [Display(Name = "Email:")]
-    public string Email { get; set; }
-    
-    [Display(Name = "Phone #:")]
-    [Phone]
-    public string PhoneNumber { get; set; }
+    [Display(Name = "Due Date:")]
+    public DateTime DueDate { get; set; }
 
-    [Display(Name = "Gender:")]
-    public string Gender { get; set; }
+    [Display(Name = "Is Completed:")]
+    public bool IsCompleted { get; set; }
+
+    [Display(Name = "Completion Date:")]
+    public DateTime? CompletionDate { get; set; }
 
     public static readonly List<SelectListItem> Genders = new()
     {

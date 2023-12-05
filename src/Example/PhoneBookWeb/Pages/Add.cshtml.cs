@@ -17,11 +17,11 @@ namespace PhoneBookWeb.Pages
             if (!ModelState.IsValid)
                 return Page();
 
-            if (Contact.Email.Contains("@gmail.com"))
-            {
-                ModelState.AddModelError(string.Empty, "Gmail is not supported");
-                return Page();
-            }
+            //if (Contact.Email.Contains("@gmail.com"))
+            //{
+            //    ModelState.AddModelError(string.Empty, "Gmail is not supported");
+            //    return Page();
+            //}
 
 
 

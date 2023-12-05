@@ -10,19 +10,19 @@ namespace PhoneBookWeb.Controllers
         public List<Contact> GetContacts() => Global.Contacts;
 
         public string Add(
-            string firstname,
-            string lastName,
-            string email,
-            string phone,
-            string gender)
+            string description,
+            DateTime dueDate,
+            Boolean isCompleted,
+            DateTime completionDate
+           )
         {
             Global.Add(new Contact
             {
-                FirstName = firstname,
-                LastName = lastName,
-                Email = email,
-                PhoneNumber = phone,
-                Gender = gender
+                Description = description,
+                DueDate = dueDate,
+                IsCompleted = isCompleted,
+                CompletionDate = completionDate,
+                
             });
             return "Success";
         }

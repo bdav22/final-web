@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PhoneBookWeb;
 
 namespace PhoneBookWeb.Pages
 {
@@ -17,14 +18,13 @@ namespace PhoneBookWeb.Pages
         {
 	        var contact = Global.GetContactById(id);
 
-            contact.FirstName = Contact.FirstName;
-            contact.LastName = Contact.LastName;
-            contact.Email = Contact.Email;
-            contact.PhoneNumber = Contact.PhoneNumber;
-            contact.Gender = Contact.Gender;
-
+            contact.Description = Contact.Description;
+            contact.DueDate = Contact.DueDate;
+            contact.IsCompleted = Contact.IsCompleted;
+            contact.CompletionDate = Contact.CompletionDate;
             Global.SaveContactsToFile();
             return RedirectToPage("Index");
         }
     }
 }
+
