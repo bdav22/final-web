@@ -17,7 +17,8 @@ static class Global
         {
             //start count at 1
             s_id = 1;
-        } else
+        } 
+        else
         {
             //else couunt up from the max number 
             s_id = Tasks.Max(t => t.Id) + 1;
@@ -28,6 +29,7 @@ static class Global
         GetTaskById();
     }
 
+    //method to init
     public static void Init(string root)
     {
         Root = root;
