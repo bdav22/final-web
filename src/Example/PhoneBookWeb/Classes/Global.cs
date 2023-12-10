@@ -32,7 +32,8 @@ static class Global
         }
         else
         {
-            s_id = 1; // Initialize s_id to 1 if no existing tasks
+            Tasks = new List<Task>();
+            s_id = 1;
         }
     }
 
