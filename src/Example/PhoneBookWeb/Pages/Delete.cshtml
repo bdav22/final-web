@@ -1,10 +1,10 @@
 ﻿@page "{id:int}"
 @model TaskManager.Pages.DeleteModel
 @{
-    var contact = Model.Task;
+    var task = Model.Task;
 }
 
-<p>Are you sure to delete @($"{contact.Id} {contact.Description}")?</p>
+<p>Are you sure to delete @($"{task.Id} {task.Description}")?</p>
 
 <form asp-page="Delete">
     <button type="submit" class="text-danger h1">Delete</button>

@@ -16,20 +16,20 @@ namespace TaskManager.Pages
 
         public IActionResult OnPost(int id)
         {
-	        var contact = Global.GetContactById(id);
+	        var task = Global.GetContactById(id);
 
 
 
-            contact.Description = Task.Description;
-            contact.DueDate = Task.DueDate;
-            contact.IsCompleted = Task.IsCompleted;
+            task.Description = Task.Description;
+            task.DueDate = Task.DueDate;
+            task.IsCompleted = Task.IsCompleted;
 
             if (Task.IsCompleted)
             {
-                contact.CompletionDate = DateTime.Now;
+                task.CompletionDate = DateTime.Now;
             } else 
             { 
-                contact.CompletionDate = null; 
+                task.CompletionDate = null; 
             }
 
             Global.SaveContactsToFile();

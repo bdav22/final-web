@@ -26,7 +26,7 @@ namespace TaskManager.Controllers
 
             if (task == null)
             {
-                return NotFound(); // Return 404 if the task with the given ID is not found
+                return NotFound(); 
             }
 
             return Ok(task);
@@ -39,7 +39,7 @@ namespace TaskManager.Controllers
 
             if (task == null)
             {
-                return NotFound(); // Return 404 if the task with the given ID is not found
+                return NotFound(); 
             }
 
             task.Description = newDescription;
@@ -55,7 +55,7 @@ namespace TaskManager.Controllers
 
             if (task == null)
             {
-                return NotFound(); // Return 404 if the task with the given ID is not found
+                return NotFound(); 
             }
 
             task.IsCompleted = true;

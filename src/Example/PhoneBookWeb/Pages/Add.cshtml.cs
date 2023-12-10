@@ -17,14 +17,6 @@ namespace TaskManager.Pages
             if (!ModelState.IsValid)
                 return Page();
 
-            //if (Task.Email.Contains("@gmail.com"))
-            //{
-            //    ModelState.AddModelError(string.Empty, "Gmail is not supported");
-            //    return Page();
-            //}
-
-
-
             Global.Add(Task);
 
             return RedirectToPage("Index");

@@ -6,26 +6,30 @@
 
 <table class="table table-striped">
     <thead>
-    <tr>
-        <th>Id</th>
-        <th>Description</th>
-        <th>Due Date</th>
-        <th>Complete yet?</th>
-        <th>Date Completed</th>
-        
-    </tr>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Complete yet?</th>
+            <th>Date Completed</th>
+            <th>Action</th>
+
+        </tr>
     </thead>
-    @foreach (var contact in Global.Tasks)
+    @foreach (var task in Global.Tasks)
     {
         <tr>
+            
+            <td>@task.Id</td>
+            <td>@task.Description</td>
+            <td>@task.DueDate</td>
+            <td>@task.IsCompleted</td>
+            <td>@task.CompletionDate</td>
             <td>
-                <a asp-page="Edit" asp-route-id="@contact.Id">Edit</a>
-                <a asp-page="Delete" asp-route-id="@contact.Id" class="text-danger">Delete</a>
+                <a asp-page="Edit" asp-route-id="@task.Id">Edit</a>
+                <a asp-page="Delete" asp-route-id="@task.Id" class="text-danger">Delete</a>
             </td>
-            <td>@contact.Description</td>
-            <td>@contact.DueDate</td>
-            <td>@contact.IsCompleted</td>
-            <td>@contact.CompletionDate</td>
         </tr>
+
     }
 </table>
