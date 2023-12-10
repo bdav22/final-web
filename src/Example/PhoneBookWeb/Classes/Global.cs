@@ -12,11 +12,20 @@ static class Global
 
     public static void Add(Task task)
     {
+        //if tasks are empty
+        if (Tasks.Count == 0)
+        {
+            //start count at 1
+            s_id = 1;
+        } else
+        {
+            //else couunt up from the max number 
+            s_id = Tasks.Max(t => t.Id) + 1;
 
-        s_id++;
+        }
         task.Id = s_id;
         Tasks.Add(task);
-        SaveContactsToFile();
+        GetTaskById();
     }
 
     public static void Init(string root)
@@ -36,7 +45,7 @@ static class Global
         }
     }
 
-    public static void SaveContactsToFile()
+    public static void GetTaskById()
     {
         var json = JsonConvert.SerializeObject(Tasks, Formatting.Indented);
         var filePath = Path.Combine(Root, "Tasks.json");
@@ -44,18 +53,28 @@ static class Global
         File.WriteAllText(filePath, json);
     }
 
-    public static Task GetContactById(int id)
+    public static Task GetTaskById(int id)
     {
         var task = Tasks.FirstOrDefault(c => c.Id == id);
         return task;
     }
-    public static void DeleteContactById(int id)
+
+    public static void DeleteTaskById(int id)
     {
-        var task = Tasks.FirstOrDefault(c => c.Id == id);
-        if (task != null)
+        Tasks.RemoveAll(c => c.Id == id);
+
+        if (Tasks.Count > 0)
         {
-            Tasks.Remove(task);
-            SaveContactsToFile();
+            
+            s_id = Tasks.Max(c => c.Id);
         }
+        else
+        {
+            
+            s_id = 0;
+        }
+
+        GetTaskById();
     }
+
 }

@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "Id": 1,
+    "Description": "asdfa",
+    "DueDate": "2023-12-21T15:23:00",
+    "IsCompleted": false,
+    "CompletionDate": null
+  },
+  {
+    "Id": 2,
+    "Description": "homework3",
+    "DueDate": "2023-12-31T15:23:00",
+    "IsCompleted": false,
+    "CompletionDate": null
+  }
+]

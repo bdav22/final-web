@@ -11,12 +11,12 @@ namespace TaskManager.Pages
 
         public void OnGet(int id)
         {
-	        Task = Global.GetContactById(id);
+	        Task = Global.GetTaskById(id);
         }
 
         public IActionResult OnPost(int id)
         {
-	        var task = Global.GetContactById(id);
+	        var task = Global.GetTaskById(id);
 
 
 
@@ -32,7 +32,7 @@ namespace TaskManager.Pages
                 task.CompletionDate = null; 
             }
 
-            Global.SaveContactsToFile();
+            Global.GetTaskById();
             return RedirectToPage("Index");
         }
     }

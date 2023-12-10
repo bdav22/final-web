@@ -9,12 +9,12 @@ namespace TaskManager.Pages
 
         public void OnGet(int id)
         {
-            Task = Global.GetContactById(id);
+            Task = Global.GetTaskById(id);
         }
 
         public IActionResult OnPost(int id)
         {
-            Global.DeleteContactById(id);
+            Global.DeleteTaskById(id);
             return RedirectToPage("Index");
         }
     }

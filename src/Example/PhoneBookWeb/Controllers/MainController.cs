@@ -26,7 +26,7 @@ namespace TaskManager.Controllers
         [HttpGet("[action]/{id}")]
         public IActionResult GetTaskById(int id)
         {
-            var task = Global.GetContactById(id);
+            var task = Global.GetTaskById(id);
 
             if (task == null)
             {
@@ -36,10 +36,11 @@ namespace TaskManager.Controllers
             return Ok(task);
         }
 
+
         [HttpPut("[action]/{id}/description")]
         public IActionResult ChangeTaskDescription(int id, [FromBody] string newDescription)
         {
-            var task = Global.GetContactById(id);
+            var task = Global.GetTaskById(id);
 
             if (task == null)
             {
@@ -47,7 +48,7 @@ namespace TaskManager.Controllers
             }
 
             task.Description = newDescription;
-            Global.SaveContactsToFile();
+            Global.GetTaskById();
 
             return Ok(task);
         }
@@ -55,7 +56,7 @@ namespace TaskManager.Controllers
         [HttpPut("[action]/{id}/complete")]
         public IActionResult MarkTaskAsCompleted(int id)
         {
-            var task = Global.GetContactById(id);
+            var task = Global.GetTaskById(id);
 
             if (task == null)
             {
@@ -64,7 +65,7 @@ namespace TaskManager.Controllers
 
             task.IsCompleted = true;
             task.CompletionDate = DateTime.Now;
-            Global.SaveContactsToFile();
+            Global.GetTaskById();
 
             return Ok(task);
         }
