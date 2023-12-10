@@ -32,7 +32,6 @@ static class Global
         }
         else
         {
-            Tasks = new List<Task>();
             s_id = 1;
         }
     }
@@ -47,12 +46,12 @@ static class Global
 
     public static Task GetContactById(int id)
     {
-        var task = Tasks.SingleOrDefault(c => c.Id == id);
+        var task = Tasks.FirstOrDefault(c => c.Id == id);
         return task;
     }
     public static void DeleteContactById(int id)
     {
-        var task = Tasks.SingleOrDefault(c => c.Id == id);
+        var task = Tasks.FirstOrDefault(c => c.Id == id);
         if (task != null)
         {
             Tasks.Remove(task);

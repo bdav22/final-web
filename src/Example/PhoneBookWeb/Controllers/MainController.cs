@@ -7,18 +7,22 @@ namespace TaskManager.Controllers
     [Route("api/[controller]")]
     public class MainController : ControllerBase
     {
+        //api for getting all tasks
         [HttpGet("[action]")]
         public List<Task> GetTasks() => Global.Tasks;
 
-        [HttpPost("[action]")]
-        public IActionResult Add(
-            [FromBody] Task newTask
-        )
+     
+
+        //api for getting completed tasks
+        [HttpGet("[action]")]
+        public IActionResult GetCompletedTasks()
         {
-            Global.Add(newTask);
-            return Ok("Success");
+            var completedTasks = Global.Tasks.FindAll(task => task.IsCompleted);
+
+            return Ok(completedTasks);
         }
 
+        //api for getting task by id
         [HttpGet("[action]/{id}")]
         public IActionResult GetTaskById(int id)
         {
