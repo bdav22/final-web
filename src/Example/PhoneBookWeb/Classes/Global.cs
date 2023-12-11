@@ -2,6 +2,7 @@
 
 namespace TaskManager;
 
+//handles task list related methods and actions
 static class Global
 {
     private static int s_id;
@@ -47,7 +48,7 @@ static class Global
         }
     }
 
-
+    //get task by id
     public static Task GetTaskById(int id)
     {
         var task = Tasks.FirstOrDefault(c => c.Id == id);

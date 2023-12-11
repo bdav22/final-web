@@ -3,6 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TaskManager.Controllers
 {
+
+
+    //controller handles http requests
+
+
+
     [ApiController]
     [Route("api/[controller]")]
     public class MainController : ControllerBase
