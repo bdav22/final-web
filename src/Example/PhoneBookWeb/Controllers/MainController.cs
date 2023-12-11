@@ -37,6 +37,7 @@ namespace TaskManager.Controllers
         }
 
 
+        //change task description
         [HttpPut("[action]/{id}/description")]
         public IActionResult ChangeTaskDescription(int id, [FromBody] string newDescription)
         {
@@ -48,11 +49,12 @@ namespace TaskManager.Controllers
             }
 
             task.Description = newDescription;
-            Global.GetTaskById();
+            Global.GetTaskById(id);
 
             return Ok(task);
         }
 
+        //marking as completed
         [HttpPut("[action]/{id}/complete")]
         public IActionResult MarkTaskAsCompleted(int id)
         {
@@ -65,7 +67,7 @@ namespace TaskManager.Controllers
 
             task.IsCompleted = true;
             task.CompletionDate = DateTime.Now;
-            Global.GetTaskById();
+            Global.GetTaskById(id);
 
             return Ok(task);
         }

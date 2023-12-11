@@ -32,7 +32,7 @@ namespace TaskManager.Pages
                 task.CompletionDate = null; 
             }
 
-            Global.GetTaskById();
+            Global.GetTaskById(id);
             return RedirectToPage("Index");
         }
     }

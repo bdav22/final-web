@@ -3,7 +3,7 @@
     "Id": 1,
     "Description": "asdfasdfasdfa",
     "DueDate": "2023-12-20T15:26:00",
-    "IsCompleted": false,
-    "CompletionDate": null
+    "IsCompleted": true,
+    "CompletionDate": "2023-12-10T16:35:58.5260971-05:00"
   }
 ]

@@ -26,7 +26,7 @@ static class Global
         }
         task.Id = s_id;
         Tasks.Add(task);
-        GetTaskById();
+        //GetTaskById();
     }
 
     //method to init
@@ -47,13 +47,6 @@ static class Global
         }
     }
 
-    public static void GetTaskById()
-    {
-        var json = JsonConvert.SerializeObject(Tasks, Formatting.Indented);
-        var filePath = Path.Combine(Root, "Tasks.json");
-
-        File.WriteAllText(filePath, json);
-    }
 
     public static Task GetTaskById(int id)
     {
@@ -61,6 +54,7 @@ static class Global
         return task;
     }
 
+    //deletes task by id
     public static void DeleteTaskById(int id)
     {
         Tasks.RemoveAll(c => c.Id == id);
@@ -76,7 +70,7 @@ static class Global
             s_id = 0;
         }
 
-        GetTaskById();
+        GetTaskById(id);
     }
 
 }
